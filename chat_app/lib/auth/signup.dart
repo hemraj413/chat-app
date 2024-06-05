@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -18,16 +19,15 @@ class _SignupPartState extends State<SignupPart> {
   TextEditingController passwordController = TextEditingController();
 
   void onTap()async{
-
+    final String name = nameController.text.trim().isNotEmpty?nameController.text.trim():"unknown";
     final String email = emailController.text.trim();
     final String password = passwordController.text.trim();
     
     try{
       await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password);
+      await FirebaseFirestore.instance.collection('users').add({"name":name,"email":email});
     }on FirebaseAuthException catch (e){
-      setState(() {
         errMsg = e.code.toString();
-      });
 
     }
 

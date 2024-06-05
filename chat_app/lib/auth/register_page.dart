@@ -1,4 +1,4 @@
-import 'package:chat_app/auth/components/continue_google.dart';
+// import 'package:chat_app/auth/components/continue_google.dart';
 import 'package:chat_app/auth/login.dart';
 import 'package:chat_app/auth/signup.dart';
 import 'package:flutter/material.dart';
@@ -33,11 +33,11 @@ class _RegisterPageState extends State<RegisterPage> {
               const Icon(Icons.messenger, size: 60,),//might change later
               const SizedBox(height: 30,),
               isLogin?const LoginPart():const SignupPart(),
-              const SizedBox(height: 10,),
-              const Text("or"),
-              const SizedBox(height: 10,),
+              // const SizedBox(height: 10,),
+              // const Text("or"),
+              // const SizedBox(height: 10,),
 
-              const ContinueGoogle(),
+              // const ContinueGoogle(),
               SizedBox(height: MediaQuery.of(context).size.height*.1,), 
 
               
